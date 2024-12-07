@@ -1,20 +1,34 @@
 name: weather_track_app
 description: "An app to track weather"
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.4 <4.0.0'
+  sdk: ">=3.4.4 <4.0.0"
   flutter: ^3.22.3
 
 dependencies:
+  bloc: ^8.1.4
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
+  get_it: ^8.0.2
+  http: ^1.2.2
 
 dev_dependencies:
+  dart_pre_commit: ^5.0.0
+  flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  git_hooks: ^1.0.1
+  integration_test:
+    sdk: flutter
+
 flutter:
   uses-material-design: true
+
+dart_pre_commit:
+  custom-lint: false
+  outdated: false
+  pull-up-dependencies: false
