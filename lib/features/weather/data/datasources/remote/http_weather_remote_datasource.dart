@@ -11,7 +11,8 @@ class HttpWeatherRemoteDatasource implements IWeatherRemoteDatasource {
   final String apiKey;
   static const url = 'https://api.openweathermap.org/data/2.5';
 
-  HttpWeatherRemoteDatasource({required this.client, required this.apiKey});
+  const HttpWeatherRemoteDatasource(
+      {required this.client, required this.apiKey});
 
   @override
   Future<WeatherModel> currentWeather({required String city}) async {

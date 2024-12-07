@@ -9,7 +9,7 @@ import 'i_weather_local_datasource.dart';
 class FssWeatherLocalDatasource implements IWeatherLocalDatasource {
   final FlutterSecureStorage storage;
 
-  FssWeatherLocalDatasource({required this.storage});
+  const FssWeatherLocalDatasource({required this.storage});
 
   @override
   Future<WeatherModel?> currentWeather({required String city}) async {
