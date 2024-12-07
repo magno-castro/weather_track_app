@@ -7,7 +7,7 @@ class Weather extends Equatable {
   final double currentTemperature;
   final double maxTemperature;
   final double minTemperature;
-  final double humidity;
+  final int humidity;
 
   const Weather({
     required this.cityName,

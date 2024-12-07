@@ -18,7 +18,7 @@ final forecastWeatherSample = [
     currentTemperature: 30.0,
     maxTemperature: 32.0,
     minTemperature: 28.0,
-    humidity: 60.0,
+    humidity: 60,
   ),
   Weather(
     cityName: 'São Luís',
@@ -27,7 +27,7 @@ final forecastWeatherSample = [
     currentTemperature: 29.0,
     maxTemperature: 31.0,
     minTemperature: 27.0,
-    humidity: 65.0,
+    humidity: 65,
   ),
   Weather(
     cityName: 'São Luís',
@@ -36,7 +36,7 @@ final forecastWeatherSample = [
     currentTemperature: 25.0,
     maxTemperature: 28.0,
     minTemperature: 23.0,
-    humidity: 85.0,
+    humidity: 85,
   ),
   Weather(
     cityName: 'São Luís',
@@ -45,7 +45,7 @@ final forecastWeatherSample = [
     currentTemperature: 26.0,
     maxTemperature: 27.0,
     minTemperature: 24.0,
-    humidity: 90.0,
+    humidity: 90,
   ),
   Weather(
     cityName: 'São Luís',
@@ -54,6 +54,6 @@ final forecastWeatherSample = [
     currentTemperature: 31.0,
     maxTemperature: 33.0,
     minTemperature: 29.0,
-    humidity: 55.0,
+    humidity: 55,
   ),
 ];
