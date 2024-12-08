@@ -20,7 +20,7 @@ void main() {
     reset(mockWeatherRepository);
   });
 
-  group('Get current weather usecase', () {
+  group('Get current weather usecase =>', () {
     const cityName = 'São Luís';
 
     test('should return weather when repository call is successful', () async {

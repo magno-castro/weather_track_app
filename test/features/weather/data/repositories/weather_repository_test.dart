@@ -7,6 +7,7 @@ import 'package:weather_track_app/features/weather/data/datasources/remote/i_wea
 import 'package:weather_track_app/features/weather/data/repositories/weather_repository.dart';
 
 import '../../../../fixtures/samples/weather_model_sample.dart';
+import '../../../../fixtures/samples/weather_sample.dart';
 
 class MockNetworkInfo extends Mock implements INetworkInfo {}
 
@@ -160,12 +161,12 @@ void main() {
             city: cityName,
             data: [weatherModelSample])).thenAnswer((_) async {});
 
-        final result = weatherRepository.forecastWeather(city: cityName);
+        final result = weatherRepository.forecastWeather(cities: [cityName]);
 
         await expectLater(
             result,
             emitsInOrder([
-              [weatherModelSample.toEntity()],
+              [forecastWeatherSample],
               emitsDone
             ]));
         verify(() => mockLocalDatasource.forecastWeather(city: cityName))
@@ -192,13 +193,13 @@ void main() {
             city: cityName,
             data: [weatherModelSample])).thenAnswer((_) async {});
 
-        final result = weatherRepository.forecastWeather(city: cityName);
+        final result = weatherRepository.forecastWeather(cities: [cityName]);
 
         await expectLater(
             result,
             emitsInOrder([
-              [weatherModelSample.toEntity()],
-              [weatherModelSample.toEntity()],
+              [forecastWeatherSample],
+              [forecastWeatherSample],
               emitsDone
             ]));
         verify(() => mockLocalDatasource.forecastWeather(city: cityName))
@@ -220,7 +221,7 @@ void main() {
             .thenAnswer((_) async => null);
         when(() => mockNetworkInfo.isConnected).thenAnswer((_) async => false);
 
-        final result = weatherRepository.forecastWeather(city: cityName);
+        final result = weatherRepository.forecastWeather(cities: [cityName]);
 
         await expectLater(
             result,
@@ -243,12 +244,12 @@ void main() {
             .thenAnswer((_) async => [weatherModelSample]);
         when(() => mockNetworkInfo.isConnected).thenAnswer((_) async => false);
 
-        final result = weatherRepository.forecastWeather(city: cityName);
+        final result = weatherRepository.forecastWeather(cities: [cityName]);
 
         await expectLater(
             result,
             emitsInOrder([
-              [weatherModelSample.toEntity()],
+              [forecastWeatherSample],
               emitsError(isA<NoConnectionFailure>()),
               emitsDone,
             ]));

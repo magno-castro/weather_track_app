@@ -20,34 +20,38 @@ void main() {
     reset(mockWeatherRepository);
   });
 
-  group('Get forecast weather usecase', () {
+  group('Get forecast weather usecase =>', () {
     const cityName = 'São Luís';
 
     test('should return a list of weather when repository call is successful',
         () async {
-      when(() => mockWeatherRepository.forecastWeather(city: cityName))
+      when(() => mockWeatherRepository.forecastWeather(cities: [cityName]))
           .thenAnswer((_) async* {
-        yield forecastWeatherSample;
+        yield [forecastWeatherSample];
       });
 
-      final result = getForecastWeather(city: cityName);
+      final result = getForecastWeather(cities: [cityName]);
 
       await expectLater(
-          result, emitsInOrder([forecastWeatherSample, emitsDone]));
-      verify(() => mockWeatherRepository.forecastWeather(city: cityName))
+          result,
+          emitsInOrder([
+            [forecastWeatherSample],
+            emitsDone
+          ]));
+      verify(() => mockWeatherRepository.forecastWeather(cities: [cityName]))
           .called(1);
       verifyNoMoreInteractions(mockWeatherRepository);
     });
 
     test('should throw an exception when repository throws an error', () async {
-      when(() => mockWeatherRepository.forecastWeather(city: cityName))
+      when(() => mockWeatherRepository.forecastWeather(cities: [cityName]))
           .thenThrow(Exception('Failed to fetch forecast'));
 
-      final result = getForecastWeather(city: cityName);
+      final result = getForecastWeather(cities: [cityName]);
 
       await expectLater(
           result, emitsInOrder([emitsError(isA<Exception>()), emitsDone]));
-      verify(() => mockWeatherRepository.forecastWeather(city: cityName))
+      verify(() => mockWeatherRepository.forecastWeather(cities: [cityName]))
           .called(1);
       verifyNoMoreInteractions(mockWeatherRepository);
     });
