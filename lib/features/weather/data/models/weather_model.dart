@@ -39,6 +39,8 @@ class WeatherModel extends Equatable {
 
   Weather toEntity() => Weather(
         cityName: name,
+        iconUrl:
+            'https://openweathermap.org/img/wn/${weathers.first.icon}@2x.png',
         date: DateTime.fromMillisecondsSinceEpoch(dt),
         main: weathers.first.description,
         currentTemperature: main.temp,

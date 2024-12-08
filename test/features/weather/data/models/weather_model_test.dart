@@ -27,6 +27,7 @@ void main() {
       test('should convert WeatherModel to Entity correctly', () {
         final weatherEntity = Weather(
           cityName: 'Province of Turin',
+          iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
           date: DateTime.fromMillisecondsSinceEpoch(1726660758),
           main: 'moderate rain',
           currentTemperature: 284.2,

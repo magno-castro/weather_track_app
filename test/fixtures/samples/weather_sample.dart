@@ -8,11 +8,13 @@ final weatherSample = Weather(
   maxTemperature: 35,
   minTemperature: 25,
   cityName: 'São Luís',
+  iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
 );
 
 final forecastWeatherSample = [
   Weather(
     cityName: 'São Luís',
+    iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
     main: 'Clear',
     date: DateTime(2024, 12, 8),
     currentTemperature: 30.0,
@@ -22,6 +24,7 @@ final forecastWeatherSample = [
   ),
   Weather(
     cityName: 'São Luís',
+    iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
     main: 'Cloudy',
     date: DateTime(2024, 12, 9),
     currentTemperature: 29.0,
@@ -31,6 +34,7 @@ final forecastWeatherSample = [
   ),
   Weather(
     cityName: 'São Luís',
+    iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
     main: 'Rain',
     date: DateTime(2024, 12, 10),
     currentTemperature: 25.0,
@@ -40,6 +44,7 @@ final forecastWeatherSample = [
   ),
   Weather(
     cityName: 'São Luís',
+    iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
     main: 'Thunderstorm',
     date: DateTime(2024, 12, 11),
     currentTemperature: 26.0,
@@ -49,6 +54,7 @@ final forecastWeatherSample = [
   ),
   Weather(
     cityName: 'São Luís',
+    iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png',
     main: 'Sunny',
     date: DateTime(2024, 12, 12),
     currentTemperature: 31.0,
