@@ -33,7 +33,7 @@ void main() {
           'should return weather model when currentWeather is called and response is successful',
           () async {
         when(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/weather?units=metric&q=$cityName&appid=$apiKey')))
             .thenAnswer((_) async =>
                 http.Response(jsonEncode(currentWeatherApiResponseJson), 200));
 
@@ -41,7 +41,7 @@ void main() {
 
         expect(result, weatherModelSample);
         verify(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/weather?units=metric&q=$cityName&appid=$apiKey')))
             .called(1);
         verifyNoMoreInteractions(mockClient);
       });
@@ -50,7 +50,7 @@ void main() {
           'should throw exception when currentWeather is called and response is unsuccessful',
           () async {
         when(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/weather?units=metric&q=$cityName&appid=$apiKey')))
             .thenAnswer(
                 (_) async => http.Response('Failed to load weather', 404));
 
@@ -58,7 +58,7 @@ void main() {
 
         await expectLater(call, throwsException);
         verify(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/weather?units=metric&q=$cityName&appid=$apiKey')))
             .called(1);
         verifyNoMoreInteractions(mockClient);
       });
@@ -69,7 +69,7 @@ void main() {
           'should return list of weather models when forecastWeather is called and response is successful',
           () async {
         when(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=$cityName&appid=$apiKey')))
             .thenAnswer((_) async =>
                 http.Response(jsonEncode(forecastWeatherApiResponse), 200));
 
@@ -77,7 +77,7 @@ void main() {
 
         expect(result, [weatherModelSample]);
         verify(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=$cityName&appid=$apiKey')))
             .called(1);
         verifyNoMoreInteractions(mockClient);
       });
@@ -86,7 +86,7 @@ void main() {
           'should throw exception when forecastWeather is called and response is unsuccessful',
           () async {
         when(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=$cityName&appid=$apiKey')))
             .thenAnswer(
                 (_) async => http.Response('Failed to load forecast', 404));
 
@@ -94,7 +94,7 @@ void main() {
 
         expect(call, throwsException);
         verify(() => mockClient.get(Uri.parse(
-                'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&appid=$apiKey')))
+                'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=$cityName&appid=$apiKey')))
             .called(1);
         verifyNoMoreInteractions(mockClient);
       });

@@ -16,8 +16,8 @@ class HttpWeatherRemoteDatasource implements IWeatherRemoteDatasource {
 
   @override
   Future<WeatherModel> currentWeather({required String city}) async {
-    final response =
-        await client.get(Uri.parse('$url/weather?q=$city&appid=$apiKey'));
+    final response = await client
+        .get(Uri.parse('$url/weather?units=metric&q=$city&appid=$apiKey'));
 
     final body = jsonDecode(response.body);
 
@@ -33,8 +33,8 @@ class HttpWeatherRemoteDatasource implements IWeatherRemoteDatasource {
 
   @override
   Future<List<WeatherModel>> forecastWeather({required String city}) async {
-    final response =
-        await client.get(Uri.parse('$url/forecast?q=$city&appid=$apiKey'));
+    final response = await client
+        .get(Uri.parse('$url/forecast?units=metric&q=$city&appid=$apiKey'));
 
     final body = jsonDecode(response.body);
 
