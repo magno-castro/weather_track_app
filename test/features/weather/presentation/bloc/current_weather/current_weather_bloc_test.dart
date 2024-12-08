@@ -4,7 +4,7 @@ import 'package:weather_track_app/core/error/failures.dart';
 import 'package:weather_track_app/features/weather/domain/usecases/get_current_weather.dart';
 import 'package:weather_track_app/features/weather/presentation/bloc/current_weather/current_weather_bloc.dart';
 
-import '../../../../fixtures/samples/weather_sample.dart';
+import '../../../../../fixtures/samples/weather_sample.dart';
 
 class MockGetCurrentWeather extends Mock implements GetCurrentWeather {}
 
